@@ -1,77 +1,46 @@
-// ======================================================
-// GET SAVED RESULT
-// ======================================================
-
-const savedData =
-    localStorage.getItem("superpowerAnalysis");
+const savedData = localStorage.getItem("superpowerAnalysis");
 
 
+// If there is no result, return to the game
 if (!savedData) {
-
-    // If someone opens analysis.html directly
-    // without completing the test
-
     window.location.href = "index.html";
-
 }
 
 
-const data =
-    JSON.parse(savedData);
+const data = JSON.parse(savedData);
 
 
-// ======================================================
-// ELEMENTS
-// ======================================================
+// --------------------------------------------------
+// BASIC RESULT
+// --------------------------------------------------
 
-const scoreElement =
-    document.getElementById("score");
-
-const scoreCircle =
-    document.getElementById("scoreCircle");
-
-const rankElement =
-    document.getElementById("rank");
-
-const commentElement =
-    document.getElementById("comment");
-
-const powerElement =
-    document.getElementById("power");
-
-const memeElement =
-    document.getElementById("meme");
+const score = Number(data.score) || 0;
 
 
-// ======================================================
-// MAIN SCORE
-// ======================================================
-
-scoreElement.textContent =
-    data.score.toFixed(2);
+document.getElementById("score").textContent =
+    Math.round(score);
 
 
-rankElement.textContent =
-    data.rank;
+document.getElementById("rank").textContent =
+    getRank(score);
 
 
-commentElement.textContent =
-    `"${data.comment}"`;
+document.getElementById("comment").textContent =
+    `"${getComment(score)}"`;
 
 
-powerElement.textContent =
-    data.power;
+document.getElementById("power").textContent =
+    getSuperpower(score);
 
 
-// ======================================================
+// --------------------------------------------------
 // SCORE CIRCLE
-// ======================================================
+// --------------------------------------------------
 
-const scoreDegrees =
-    data.score * 3.6;
+const scoreDegrees = score * 3.6;
 
 
-scoreCircle.style.background = `
+document.getElementById("scoreCircle").style.background = `
     conic-gradient(
         #e62429 ${scoreDegrees}deg,
         #ffd21f ${scoreDegrees}deg,
@@ -80,99 +49,365 @@ scoreCircle.style.background = `
 `;
 
 
-// ======================================================
-// STATISTICS
-// ======================================================
-
-function setStat(
-    value,
-    textId,
-    barId
-) {
-
-    const text =
-        document.getElementById(textId);
-
-    const bar =
-        document.getElementById(barId);
+// --------------------------------------------------
+// DUMB ANALYSIS PARAMETERS
+// --------------------------------------------------
 
 
-    text.textContent =
-        value.toFixed(1) + "%";
+// AIM CONFIDENCE
+const aimConfidence = randomAround(score, 10);
 
 
-    setTimeout(() => {
+// BRAIN COORDINATION
+const brainCoordination = randomAround(score, 15);
 
-        bar.style.width =
-            value + "%";
 
-    }, 200);
+// REFLEX STABILITY
+const reflexStability = randomAround(score, 20);
+
+
+// LINE VIBES
+const lineVibes = randomAround(score, 8);
+
+
+// VILLAIN INTIMIDATION
+const villainIntimidation = randomAround(score, 25);
+
+
+// Display everything
+
+setStat(
+    aimConfidence,
+    "aimConfidence",
+    "aimConfidenceBar"
+);
+
+
+setStat(
+    brainCoordination,
+    "brainCoordination",
+    "brainCoordinationBar"
+);
+
+
+setStat(
+    reflexStability,
+    "reflexStability",
+    "reflexStabilityBar"
+);
+
+
+setStat(
+    lineVibes,
+    "lineVibes",
+    "lineVibesBar"
+);
+
+
+setStat(
+    villainIntimidation,
+    "villainIntimidation",
+    "villainIntimidationBar"
+);
+
+
+// --------------------------------------------------
+// MEME
+// --------------------------------------------------
+
+
+// Your three memes:
+//
+// meme_good.jpg
+// meme_mid.jpg
+// meme_bad.jpg
+
+let memePath;
+let memeCaption;
+
+
+if (score >= 70) {
+
+    memePath = "assets/happy.png";
+
+    memeCaption =
+        "The scientists are concerned. You may actually be useful.";
+
+}
+else if (score >= 40) {
+
+    memePath = "assets/mid.png";
+
+    memeCaption =
+        "There is potential here. Unfortunately, it is mostly potential.";
+
+}
+else {
+
+    memePath = "assets/bad.png";
+
+    memeCaption =
+        "Further testing is recommended. Preferably by someone else.";
 
 }
 
 
-setStat(
-    data.straightness,
-    "straightness",
-    "straightnessBar"
-);
+document.getElementById("meme").src = memePath;
 
 
-setStat(
-    data.endpoint,
-    "endpoint",
-    "endpointBar"
-);
+document.getElementById("memeCaption").textContent =
+    memeCaption;
 
 
-setStat(
-    data.start,
-    "start",
-    "startBar"
-);
+// --------------------------------------------------
+// FINAL CONCLUSION
+// --------------------------------------------------
+
+document.getElementById("finalConclusion").textContent =
+    getConclusion(score);
 
 
-setStat(
-    data.end,
-    "end",
-    "endBar"
-);
-
-
-// ======================================================
-// REACTION TIME
-// ======================================================
-
-document.getElementById(
-    "reactionTime"
-).textContent =
-    data.reactionTime.toFixed(2) + " sec";
-
-
-// ======================================================
-// MEME
-// ======================================================
-
-memeElement.src =
-    data.meme;
-
-
-// ======================================================
+// --------------------------------------------------
 // TRY AGAIN
-// ======================================================
+// --------------------------------------------------
 
-document.getElementById(
-    "tryAgain"
-).addEventListener(
-    "click",
-    function () {
+document.getElementById("tryAgain").addEventListener("click", function () {
 
-        localStorage.removeItem(
-            "superpowerAnalysis"
-        );
+    localStorage.removeItem("superpowerAnalysis");
 
-        window.location.href =
-            "index.html";
+    window.location.href = "index.html";
+
+});
+
+
+// ==================================================
+// FUNCTIONS
+// ==================================================
+
+
+function setStat(value, textId, barId) {
+
+    value = Math.max(0, Math.min(100, value));
+
+    document.getElementById(textId).textContent =
+        Math.round(value) + "%";
+
+
+    setTimeout(function () {
+
+        document.getElementById(barId).style.width =
+            value + "%";
+
+    }, 300);
+}
+
+
+function randomAround(value, range) {
+
+    const random =
+        value + (Math.random() * range * 2 - range);
+
+    return Math.max(0, Math.min(100, random));
+}
+
+
+// --------------------------------------------------
+// RANK
+// --------------------------------------------------
+
+function getRank(score) {
+
+    if (score >= 90)
+        return "LEGENDARY HERO";
+
+    if (score >= 70)
+        return "CERTIFIED HERO";
+
+    if (score >= 40)
+        return "SIDEKICK MATERIAL";
+
+    return "PROFESSIONAL NPC";
+}
+
+
+// --------------------------------------------------
+// SUPERPOWER
+// --------------------------------------------------
+
+function getSuperpower(score) {
+
+    if (score >= 90) {
+
+        const powers = [
+
+            "LASER VISION 👁️",
+
+            "SUPERHUMAN REFLEXES ⚡",
+
+            "TELEPATHY 🧠",
+
+            "ABILITY TO ALWAYS FIND THE REMOTE 📺"
+
+        ];
+
+        return randomItem(powers);
+    }
+
+
+    if (score >= 70) {
+
+        const powers = [
+
+            "ENHANCED AIM 🎯",
+
+            "MINOR TELEKINESIS 🌀",
+
+            "DANGER DETECTION 🚨",
+
+            "SUPREME SNACK DETECTION 🍕"
+
+        ];
+
+        return randomItem(powers);
+    }
+
+
+    if (score >= 40) {
+
+        const powers = [
+
+            "AVERAGE HUMAN REFLEXES 🧍",
+
+            "EXTRA LOUD SIGHING 😮‍💨",
+
+            "REMOTE CONTROL DETECTION 📺",
+
+            "ABILITY TO IGNORE ALARMS ⏰"
+
+        ];
+
+        return randomItem(powers);
+    }
+
+
+    return "PROFESSIONAL NPC STATUS 🎮";
+}
+
+
+// --------------------------------------------------
+// SARCASTIC COMMENT
+// --------------------------------------------------
+
+function getComment(score) {
+
+    if (score >= 90) {
+
+        const comments = [
+
+            "Okay... that's actually suspiciously good.",
+
+            "The Justice League may contact you shortly.",
+
+            "We may have accidentally created a superhero.",
+
+            "Please stop being this accurate. It's making us uncomfortable."
+
+        ];
+
+        return randomItem(comments);
+    }
+
+
+    if (score >= 70) {
+
+        const comments = [
+
+            "Not bad. Your cape is almost ready.",
+
+            "You're getting dangerously close to being useful.",
+
+            "Batman would probably approve.",
+
+            "Honestly... better than expected. We hate that."
+
+        ];
+
+        return randomItem(comments);
+    }
+
+
+    if (score >= 40) {
+
+        const comments = [
+
+            "Technically a human achievement.",
+
+            "Your superpower is probably still buffering.",
+
+            "The superhero application is under review.",
+
+            "There is hope. Somewhere. Probably."
+
+        ];
+
+        return randomItem(comments);
+    }
+
+
+    const comments = [
+
+        "Please return your imaginary cape.",
+
+        "The villain is currently laughing at you.",
+
+        "Congratulations. You have unlocked NPC mode.",
+
+        "Your superpower appears to be missing.",
+
+        "Even the villain gave you a second chance."
+
+    ];
+
+    return randomItem(comments);
+}
+
+
+// --------------------------------------------------
+// FINAL CONCLUSION
+// --------------------------------------------------
+
+function getConclusion(score) {
+
+    if (score >= 90) {
+
+        return "THE RESULTS ARE... SUSPICIOUSLY IMPRESSIVE.";
 
     }
-);
+
+    if (score >= 70) {
+
+        return "YOU MAY ACTUALLY HAVE A SUPERPOWER.";
+
+    }
+
+    if (score >= 40) {
+
+        return "THERE IS... SOME KIND OF POTENTIAL.";
+
+    }
+
+    return "SCIENTIFICALLY SPEAKING, PLEASE TRY AGAIN.";
+}
+
+
+// --------------------------------------------------
+// RANDOM ITEM
+// --------------------------------------------------
+
+function randomItem(array) {
+
+    return array[
+        Math.floor(Math.random() * array.length)
+    ];
+
+}
