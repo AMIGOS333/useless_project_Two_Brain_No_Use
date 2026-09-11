@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Superpower Analysis</title>
+
+    <link rel="stylesheet" href="analysis.css">
+
+</head>
+
+
+<body>
+
+    <div class="comic-word word-pow">
+        POW!
+    </div>
+
+    <div class="comic-word word-bam">
+        BAM!
+    </div>
+
+
+    <main class="analysis-container">
+
+
+        <!-- HEADER -->
+
+        <section class="analysis-header">
+
+            <div class="classified">
+                🗂 CLASSIFIED SUPERHERO FILE
+            </div>
+
+            <h1>
+                SUPERPOWER
+                <span>ANALYSIS™</span>
+            </h1>
+
+            <p>
+                The world's least scientifically reliable superhero test.
+            </p>
+
+        </section>
+
+
+
+        <!-- MAIN SCORE -->
+
+        <section class="score-card">
+
+            <div class="score-label">
+                YOUR SUPERHERO SCORE
+            </div>
+
+            <div
+                class="score-circle"
+                id="scoreCircle"
+            >
+
+                <div>
+
+                    <span id="score">
+                        0
+                    </span>
+
+                    <small>
+                        %
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="rank"
+                id="rank"
+            >
+                LOADING...
+            </div>
+
+
+            <div
+                class="score-comment"
+                id="comment"
+            >
+                Calculating your totally legitimate powers...
+            </div>
+
+        </section>
+
+
+
+        <!-- SUPERPOWER -->
+
+        <section class="power-card">
+
+            <div class="card-title">
+                ⚡ DETECTED SUPERPOWER
+            </div>
+
+            <div
+                class="power"
+                id="power"
+            >
+                UNKNOWN
+            </div>
+
+            <div class="power-description">
+
+                After extensive research conducted by
+                absolutely nobody...
+
+            </div>
+
+        </section>
+
+
+
+        <!-- STATISTICS -->
+
+        <section class="stats-section">
+
+            <h2>
+                📊 SCIENTIFICALLY QUESTIONABLE METRICS
+            </h2>
+
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🎯
+                    </div>
+
+                    <div class="stat-name">
+                        LINE ACCURACY
+                    </div>
+
+                    <div
+                        class="stat-value"
+                        id="straightness"
+                    >
+                        0%
+                    </div>
+
+                    <div class="progress">
+
+                        <div
+                            id="straightnessBar"
+                            class="progress-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📍
+                    </div>
+
+                    <div class="stat-name">
+                        AIM PRECISION
+                    </div>
+
+                    <div
+                        class="stat-value"
+                        id="endpoint"
+                    >
+                        0%
+                    </div>
+
+                    <div class="progress">
+
+                        <div
+                            id="endpointBar"
+                            class="progress-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🧠
+                    </div>
+
+                    <div class="stat-name">
+                        START ACCURACY
+                    </div>
+
+                    <div
+                        class="stat-value"
+                        id="start"
+                    >
+                        0%
+                    </div>
+
+                    <div class="progress">
+
+                        <div
+                            id="startBar"
+                            class="progress-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🦸
+                    </div>
+
+                    <div class="stat-name">
+                        END ACCURACY
+                    </div>
+
+                    <div
+                        class="stat-value"
+                        id="end"
+                    >
+                        0%
+                    </div>
+
+                    <div class="progress">
+
+                        <div
+                            id="endBar"
+                            class="progress-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- REACTION TIME -->
+
+        <section class="reaction-card">
+
+            <div class="reaction-icon">
+                ⚡
+            </div>
+
+            <div>
+
+                <div class="reaction-title">
+                    DRAWING TIME
+                </div>
+
+                <div
+                    class="reaction-value"
+                    id="reactionTime"
+                >
+                    0 sec
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- MEME -->
+
+        <section class="meme-section">
+
+            <div class="meme-title">
+                😂 OFFICIAL TEST RESULT
+            </div>
+
+            <div class="meme-card">
+
+                <img
+                    id="meme"
+                    src=""
+                    alt="Superhero result meme"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- DISCLAIMER -->
+
+        <section class="disclaimer">
+
+            ⚠️ IMPORTANT SCIENTIFIC DISCLAIMER
+
+            <p>
+
+                This test has absolutely no scientific validity.
+                Your probability of having superpowers is exactly
+                as accurate as this website claims it is.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- BUTTONS -->
+
+        <div class="button-area">
+
+            <button
+                id="tryAgain"
+                class="comic-button"
+            >
+                🔄 TRY AGAIN
+            </button>
+
+        </div>
+
+
+        <footer>
+
+            SUPERHERO ANALYSIS LAB © 2026
+
+        </footer>
+
+
+    </main>
+
+
+    <script src="analysis.js"></script>
+
+</body>
+
+</html>

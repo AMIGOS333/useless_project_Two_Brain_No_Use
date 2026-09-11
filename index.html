@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Superhero Line Challenge</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="comic-burst burst1">POW!</div>
+    <div class="comic-burst burst2">ZAP!</div>
+
+    <main class="main-container">
+
+        <div class="title-section">
+
+            <div class="mini-label">
+                🧪 TOTALLY UNRELIABLE SCIENCE
+            </div>
+
+            <h1>SUPERHERO<br><span>LINE CHALLENGE</span></h1>
+
+            <p>
+                Draw a perfectly straight line from the superhero's eye
+                to the villain.
+            </p>
+
+            <div class="warning">
+                ⚠️ Your future superpowers depend on this.
+            </div>
+
+        </div>
+
+
+        <div class="game-card">
+
+            <div class="instruction">
+                <span>🎯</span>
+                START FROM THE EYE → AIM AT THE VILLAIN
+            </div>
+
+            <div class="canvas-wrapper">
+
+                <img
+                    src="assets/superhero.png"
+                    id="superheroImage"
+                    alt="Superhero challenge"
+                >
+
+                <canvas
+                    id="drawingCanvas"
+                    width="800"
+                    height="500">
+                </canvas>
+
+            </div>
+
+
+            <div class="button-area">
+
+                <button id="checkButton" class="comic-button">
+                    💥 CHECK MY SUPERPOWER
+                </button>
+
+                <button id="resetButton" class="reset-button">
+                    ↻ TRY AGAIN
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-note">
+            * Results are 100% scientifically questionable.
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
