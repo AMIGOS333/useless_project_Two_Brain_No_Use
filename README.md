@@ -81,8 +81,7 @@ For Software:
 # Video
 <video controls src="assets/Demovideo.mp4" title="Title"></video>
 
-*The video demonstrates the Superhero Challenge website, where the user draws a straight line from the superhero’s eye toward the villain. The website analyzes the accuracy of the drawn line and generates a humorous superpower prediction, hero rank, sarcastic comment, and meme based on the user's score.
-*
+[The video demonstrates the Superhero Challenge website, where the user draws a straight line from the superhero’s eye toward the villain. The website analyzes the accuracy of the drawn line and generates a humorous superpower prediction, hero rank, sarcastic comment, and meme based on the user's score.]
 
 
 ---
