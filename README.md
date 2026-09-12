@@ -55,43 +55,35 @@ For Software:
   - GitHub
   - Web Browser]
 
-### Implementation
-For Software:
-# Installation
-[No installation or external packages are required.]
 
-# Run
-[commands]
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot 1](assets/firstpage1.png)
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot 2](assets/firstpage2.png)
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot 3](assets/firstpage3.png)
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+![Screenshot 4](assets/firstpage4.png)
+
+![Screenshot 5](assets/secondpage1.png)
+
+![Screenshot 6](assets/secondpage2.png)
+
+![Screenshot 7](assets/secondpage3.png)
+
+![Screenshot 8](assets/secondpage4.png)
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+<video controls src="assets/Demovideo.mp4" title="Title"></video>
 
-# Additional Demos
-[Add any extra demo materials/links]
+*The video demonstrates the Superhero Challenge website, where the user draws a straight line from the superhero’s eye toward the villain. The website analyzes the accuracy of the drawn line and generates a humorous superpower prediction, hero rank, sarcastic comment, and meme based on the user's score.
+*
 
-## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
